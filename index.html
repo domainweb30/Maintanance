@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard Maintenance – PT Gardena Furniture</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <div>
+    <h1>Dashboard Maintenance Peralatan Produksi</h1>
+    <p class="sub">PT Gardena Furniture · versi digital Kartu Riwayat Maintenance (GRD-MTN) · data contoh, per <span id="today"></span></p>
+  </div>
+  <label class="sub">Divisi/Area<br><select id="div"></select></label>
+</header>
+
+<section class="kpis" id="kpis"></section>
+
+<section class="grid">
+  <div class="c"><h2>Kegiatan per bulan (6 bulan terakhir)</h2><div class="cols" id="months"></div>
+    <div class="lg"><span><s style="background:var(--pm)"></s>PM (preventif)</span><span><s style="background:var(--cm)"></s>CM (perbaikan)</span></div></div>
+  <div class="c"><h2>Peralatan paling sering rusak (CM)</h2><div id="topcm"></div></div>
+  <div class="c"><h2>Suku cadang paling banyak dipakai</h2><div id="parts"></div></div>
+  <div class="c"><h2>Beban kerja pelaksana</h2><div id="crew"></div></div>
+</section>
+
+<section class="c wide" style="margin-bottom:16px">
+  <h2>Status jadwal pemeriksaan per peralatan</h2>
+  <div class="sc"><table><thead><tr><th>Kode</th><th>Peralatan</th><th>Divisi · Lokasi</th><th>Kegiatan terakhir</th><th>Hasil verifikasi</th><th>Pemeriksaan berikutnya</th><th>Status</th></tr></thead><tbody id="eqt"></tbody></table></div>
+</section>
+
+<section class="c wide" style="margin-bottom:16px">
+  <h2>Catat kegiatan baru</h2>
+  <div class="f">
+    <label>Peralatan<select id="n_k"></select></label>
+    <label>Tanggal kegiatan<input type="date" id="n_t"></label>
+    <label>Jenis kegiatan<select id="n_j"><option value="PM">PM – Preventive</option><option value="CM">CM – Corrective</option></select></label>
+    <label>Pelaksana<input id="n_p" placeholder="Nama teknisi"></label>
+    <label class="full">Kondisi / keluhan<input id="n_c"></label>
+    <label class="full">Tindakan yang dilakukan<input id="n_a"></label>
+    <label>Suku cadang yang digunakan<input id="n_s" placeholder="Kosongkan bila tidak ada"></label>
+    <label>Hasil verifikasi<select id="n_h"><option>Normal</option><option>Perbaikan</option></select></label>
+    <label>Tanggal pemeriksaan berikutnya<input type="date" id="n_n"></label>
+  </div>
+  <p style="margin:14px 0 0"><button id="save">Simpan kegiatan</button><span class="msg" id="msg"></span></p>
+</section>
+
+<section class="c wide">
+  <h2>Riwayat kegiatan terbaru</h2>
+  <div class="sc"><table><thead><tr><th>Tanggal</th><th>Peralatan</th><th>Jenis</th><th>Kondisi / keluhan</th><th>Tindakan</th><th>Suku cadang</th><th>Pelaksana</th><th>Hasil</th></tr></thead><tbody id="hist"></tbody></table></div>
+</section>
+<footer>Data tambahan tersimpan di browser ini saja. Untuk dipakai bersama tim, data perlu dihubungkan ke database atau Google Sheets.</footer>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
